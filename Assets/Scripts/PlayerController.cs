@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -6,7 +8,9 @@ public class PlayerController : MonoBehaviour
     public float speed = 5f, jumpForce;
     public float turnSpeed, horizotalMove, jumpInput;
     public Rigidbody rb;
-    public bool isGrounded, gameOver = false;
+    public bool isGrounded, gameOver;
+    public GameObject startBtn, gameEndPanel;
+    public Text scoreText, gameEndScore;
 
     //public Vector3 movement = new Vector3 (0, 0, 1);
     /*private void Start()
@@ -51,15 +55,34 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.tag == "Coin")
         {
             score++;
-
+            scoreText.text = score.ToString();
             Debug.Log(" Score : " + score);
             Debug.Log(" Trigger with coin");
             Destroy(other.gameObject);
         }
         else if (other.gameObject.tag == "Enemy")
         {
-            gameOver = true;
+            //gameOver = true;
+            StopGame();
         }
+    }
+    //
+    public void StopGame()
+    {
+        gameOver = true;
+        gameEndScore.text = score.ToString() ;
+        gameEndPanel.SetActive(true);
+
+    }
+    public void StartGame()
+    {
+        startBtn.SetActive(false);
+        gameOver = false;
+    }
+    //
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }                       //------------ Vector3.right = (1,0,0)
                         //------------ Vector3.left = (-1,0,0)\
