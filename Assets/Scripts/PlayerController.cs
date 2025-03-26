@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     public int score = 0;
-    public float speed = 5f, jumpForce;
+    public float speed = 5f, maxSpeed = 20f, jumpForce;
     public float turnSpeed, horizotalMove, jumpInput;
     public Rigidbody rb;
     public bool isGrounded, gameOver;
@@ -20,8 +20,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameOver == false)
+        if (gameOver == false) // equal to false when user click Play/Start button
         {
+            if (speed < maxSpeed)
+            { speed = speed + (.5f * Time.deltaTime); }
+
             // countinuousely move player forward
             transform.Translate(Vector3.forward * Time.deltaTime * speed);
             // Turn player left/right
@@ -70,7 +73,7 @@ public class PlayerController : MonoBehaviour
     public void StopGame()
     {
         gameOver = true;
-        gameEndScore.text = score.ToString() ;
+        gameEndScore.text = score.ToString();
         gameEndPanel.SetActive(true);
 
     }

@@ -4215,6 +4215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   speed: 5
+  maxSpeed: 20
   jumpForce: 5
   turnSpeed: 2
   horizotalMove: 0
