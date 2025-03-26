@@ -18,6 +18,12 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }*/
     // Update is called once per frame
+    private void FixedUpdate()
+    {
+        jumpInput = Input.GetAxis("Jump");
+        if (jumpInput > 0 && isGrounded)
+        { rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpForce, rb.linearVelocity.z); }
+    }
     void Update()
     {
         if (gameOver == false) // equal to false when user click Play/Start button
@@ -32,9 +38,7 @@ public class PlayerController : MonoBehaviour
             transform.Translate(Vector3.right * Time.deltaTime * turnSpeed * horizotalMove);
             //rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpForce, rb.linearVelocity.z);
             // implement jump on player
-            jumpInput = Input.GetAxis("Jump");
-            if (jumpInput > 0 && isGrounded)
-            { rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpForce, rb.linearVelocity.z); }
+            
         }
     }
     //
@@ -69,6 +73,7 @@ public class PlayerController : MonoBehaviour
             StopGame();
         }
     }
+    //
     //
     public void StopGame()
     {
