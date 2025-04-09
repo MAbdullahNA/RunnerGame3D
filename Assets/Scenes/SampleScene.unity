@@ -4780,6 +4780,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6722f3485b4f21445ba2b18ba1982a77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveInputAction:
+    m_Name: Move Input
+    m_Type: 0
+    m_ExpectedControlType: Vector2
+    m_Id: afef496c-843f-461d-916b-399319f1c727
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 2D Vector
+      m_Id: e4a63032-b5ba-4771-b0fd-06a29f72a9ce
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move Input
+      m_Flags: 4
+    - m_Name: up
+      m_Id: a1709cd6-ce60-4078-8ddf-86f6823fd6f8
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move Input
+      m_Flags: 8
+    - m_Name: down
+      m_Id: 9ffa947e-54e1-4fd7-84fa-4aeebba4fefa
+      m_Path: <Keyboard>/s
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move Input
+      m_Flags: 8
+    - m_Name: left
+      m_Id: 29e9bea3-5dc4-4db8-86e9-7a05c86a9cf7
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move Input
+      m_Flags: 8
+    - m_Name: right
+      m_Id: 7f9e9c15-b86e-47a4-b046-6491eb444f09
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move Input
+      m_Flags: 8
+    m_Flags: 0
   score: 0
   highScore: 0
   speed: 5
@@ -4796,10 +4845,6 @@ MonoBehaviour:
   scoreText: {fileID: 1785272867}
   gameEndScore: {fileID: 1853951352}
   highScoreText: {fileID: 840083426}
-  top: {fileID: 0}
-  gE: {fileID: 0}
-  highScoreGO: {fileID: 0}
-  canvas: {fileID: 0}
 --- !u!54 &2015153311
 Rigidbody:
   m_ObjectHideFlags: 0
