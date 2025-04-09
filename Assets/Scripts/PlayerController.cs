@@ -4,13 +4,14 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    public int score = 0;
+    public int score = 0, highScore;
     public float speed = 5f, maxSpeed = 20f, jumpForce;
     public float turnSpeed, horizotalMove, jumpInput;
     public Rigidbody rb;
     public bool isGrounded, gameOver;
     public GameObject startBtn, gameEndPanel;
-    public Text scoreText, gameEndScore;
+    public Text scoreText, gameEndScore, highScoreText;
+
 
     //public Vector3 movement = new Vector3 (0, 0, 1);
     /*private void Start()
@@ -77,6 +78,13 @@ public class PlayerController : MonoBehaviour
     //
     public void StopGame()
     {
+        highScore = PlayerPrefs.GetInt("HighScore",0);
+        if(score > highScore)
+        {
+            PlayerPrefs.SetInt("HighScore",score);
+            highScore = score;
+        }
+        highScoreText.text = highScore.ToString();
         gameOver = true;
         gameEndScore.text = score.ToString();
         gameEndPanel.SetActive(true);
